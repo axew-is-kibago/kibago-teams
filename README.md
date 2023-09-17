@@ -1,27 +1,23 @@
-# React + TypeScript + Vite
+開発環境準備
+codespaceの場合  
+<img src="imgs/codespaces.png" width="500">    
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[create codespace on main]をクリックで終了
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+httpsの場合  
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+git clone https://github.com/axew-is-kibago/kibago-teams.git
+```
+sshの場合  
+```
+git clone git@github.com:axew-is-kibago/kibago-teams.git
+```
+cloneしたら，vscodeを開きターミナルで以下のコマンドを実行
+```
+yarn
+```
+yarn dev で開発サーバーを起動
+```
+yarn dev
+```
