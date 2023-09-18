@@ -21,3 +21,23 @@ yarn dev で開発サーバーを起動
 ```
 yarn dev
 ```
+
+
+
+
+DBとの接続
+api/local.settings.json
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "MYSQL_HOST":"",
+    "MYSQL_USER":"",
+    "MYSQL_PASSWORD":"",
+    "MYSQL_DB":""
+  }
+}
+
+```
