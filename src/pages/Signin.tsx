@@ -1,18 +1,15 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import { AuthProvider, useAuthContext } from "../context/authContext.tsx";
 import { auth } from '../firebase.ts';
+import { AuthProvider } from "../context/authContext.tsx";
 import { Link } from "react-router-dom";
-// import { useAuthContext } from "../context/authContext.tsx";
-export const SignUp = () => {
-  const user = useAuthContext();
-  console.log(user?.email)
+export const SignIn = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const user = await createUserWithEmailAndPassword(auth, email, password)
+    const user = await signInWithEmailAndPassword(auth, email, password)
     console.log("User: ", user);
   };
 
@@ -26,7 +23,6 @@ export const SignUp = () => {
     return (
       <div>
         <AuthProvider>
-          <h1>User{ user?.email }</h1>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email">Email</label>
@@ -49,10 +45,10 @@ export const SignUp = () => {
               />
           </div>
           <div>
-            <button type="submit">Regist</button>
+            <button type="submit">Signin</button>
           </div>
           <div>
-            User Singin is <Link to={'/signin'}>Here...</Link>
+            User regist is <Link to={'/signup'}>Here...</Link>
           </div>
         </form>
         </AuthProvider>
