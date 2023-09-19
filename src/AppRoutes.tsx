@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Login } from './pages/Login';
+import { SignUp } from './pages/SignUp';
 import { ProfileCreate } from './pages/ProfileCreate';
 import { Home } from './pages/Home';
 import { Comunities } from './pages/Communities';
@@ -10,7 +10,7 @@ import { CommunityInfo } from './pages/CommunityInfo';
 import { Error } from './pages/Error';
 
 export const router = createBrowserRouter([
-    { path: "/", element: <Login />},
+    { path: "/", element: <SignUp />},
     { path: "/home", element: <Home/>},
     { path: "/profile_create", element: <ProfileCreate />},
     { path: "/communities", element: <Comunities />},
