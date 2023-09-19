@@ -16,6 +16,7 @@ export const Home = () => {
     return (
       <div>
         <h1>Home Page</h1>
+        <p>{user.email}</p>
         <button onClick={handleLogout}>Logout</button>
       </div>
     )
