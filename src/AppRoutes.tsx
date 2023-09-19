@@ -7,6 +7,7 @@ import { Chat } from './components/pages/Home/Communities/Chat';
 import { Participant } from './components/pages/Home/Communities/Participant';
 import { Profile } from './components/pages/Home/Communities/Profile';
 import { CommunityInfo } from './components/pages/Home/CommunityInfo';
+import { Error } from './components/pages/Error';
 
 export const router = createBrowserRouter([
     { path: "/", element: <Login />},
@@ -17,4 +18,5 @@ export const router = createBrowserRouter([
     { path: "communities/chat/participant", element: <Participant />},
     { path: "communities/chat/participant/profile", element: <Profile />},
     { path: "/community_info", element: <CommunityInfo />},
+    { path: "/*", element: <Error />},
 ]);
