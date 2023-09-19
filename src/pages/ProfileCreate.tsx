@@ -1,3 +1,5 @@
+import Button from "../components/Button";
+
 export const ProfileCreate = () => {
   return (
     <>
@@ -74,6 +76,7 @@ export const ProfileCreate = () => {
           </div>
         </div>
     </div>
+      <Button href="/home" title="作成" />
     </>
   );
 };

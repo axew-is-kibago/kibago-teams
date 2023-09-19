@@ -10,7 +10,7 @@ export const Home = () => {
           <div className="">Home</div>
           <EventBox />
         </div>
-        <Button />
+        <Button href = "/" title = "戻る"/>
       </>
     );
   };
