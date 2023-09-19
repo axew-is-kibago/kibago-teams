@@ -26,7 +26,7 @@ export const Home = () => {
             <button onClick={handleLogout}>Logout</button>
           <EventBox />
         </div>
-        <Button href = "/" title = "戻る"/>
+        <Button href = "/" title = "戻る" />
       </>
     );
   };
