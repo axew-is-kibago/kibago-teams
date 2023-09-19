@@ -9,6 +9,7 @@ import { Profile } from './pages/Profile';
 import { CommunityInfo } from './pages/CommunityInfo';
 import { Error } from './pages/Error';
 
+
 export const router = createBrowserRouter([
     { path: "/", element: <Login />},
     { path: "/home", element: <Home/>},
