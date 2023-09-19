@@ -1,17 +1,17 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Home } from './components/pages/Home/Home';
-import { Login } from './components/pages/Login';
-import { ProfileCreate } from './components/pages/Home/ProfileCreate';
-import { Comunities } from './components/pages/Home/Communities/Communities';
-import { Chat } from './components/pages/Home/Communities/Chat';
-import { Participant } from './components/pages/Home/Communities/Participant';
-import { Profile } from './components/pages/Home/Communities/Profile';
-import { CommunityInfo } from './components/pages/Home/CommunityInfo';
-import { Error } from './components/pages/Error';
+import { Login } from './pages/Login';
+import { ProfileCreate } from './pages/ProfileCreate';
+import { Home } from './pages/Home';
+import { Comunities } from './pages/Communities';
+import { Chat } from './pages/Chat';
+import { Participant } from './pages/Participant';
+import { Profile } from './pages/Profile';
+import { CommunityInfo } from './pages/CommunityInfo';
+import { Error } from './pages/Error';
 
 export const router = createBrowserRouter([
     { path: "/", element: <Login />},
-    { path: "/home", element: <Home />},
+    { path: "/home", element: <Home/>},
     { path: "/profile_create", element: <ProfileCreate />},
     { path: "/communities", element: <Comunities />},
     { path: "communities/chat", element: <Chat />},
