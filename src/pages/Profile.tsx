@@ -1,3 +1,5 @@
+import Button from "../components/Button"
+
 export const Profile = () => {
   return (
     <>
@@ -73,6 +75,9 @@ export const Profile = () => {
           </div>
         </div>
     </div>
+    <Button href="/participant" title="戻る" />
+
+
     </>
   );
 };
