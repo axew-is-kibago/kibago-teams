@@ -6,7 +6,9 @@ export const Home = () => {
       <>
         <Header />
         <div className="">Home</div>
+        <div className="ml-5">
         <Button />
+        </div>
       </>
     );
   };

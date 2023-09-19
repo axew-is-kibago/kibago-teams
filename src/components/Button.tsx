@@ -1,8 +1,7 @@
 function Button() {
     return (
       <>
-        <button className="btn">Button</button>
-        <button className="btn btn-neutral">Neutral</button>
+        <button className="bg-sky-400 text-[27px] px-8 py-2 hover:bg-sky-200 rounded font-bold">戻る</button>
       </>
     )
   }
