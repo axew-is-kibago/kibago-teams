@@ -1,6 +1,8 @@
+import Header from '../components/Header'
 export const EventCreate = () => {
     return (
       <>
+      <Header />
         <div className="text-center text-xl py-[5vh]">イベント作成 (あとで置き換え)</div>
         <div id="wrapper" className="w-2/3 ml-auto mr-auto border-2 rounded mb-[8vh]">
         <div id="input-wrapper" className="w-3/4 ml-auto mr-auto pb-[8vh]">
