@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import EventBox from "../components/EventBox";
 
 type BoxInfo = {
+  id: number;
   title: string;
   representative: string;
   location: string;
@@ -15,11 +16,19 @@ type BoxInfo = {
 
 export const Home = () => {
   const boxes: BoxInfo[] = [
-    { title: "マラソンクラブ", representative: "武井壮", location: "スカイツリー", date: "10月15日", overview: "みんなで走りましょう" },
-    { title: "水泳クラブ", representative: "武井壮", location: "太平洋", date: "10月16日", overview: "みんなで泳ぎましょう" },
-    { title: "二刀流クラブ", representative: "大谷翔平", location: "USA", date: "12月15日", overview: "みんなで二刀流" },
-    { title: "なわとびクラブ", representative: "大谷翔平", location: "USA", date: "12月15日", overview: "みんなで二刀流" },
+    { id: 1, title: "マラソンクラブ", representative: "武井壮", location: "スカイツリー", date: "10月15日", overview: "みんなで走りましょう" },
+    { id: 2, title: "水泳クラブ", representative: "武井壮", location: "太平洋", date: "10月16日", overview: "みんなで泳ぎましょう" },
+    { id: 3, title: "二刀流クラブ", representative: "大谷翔平", location: "USA", date: "12月15日", overview: "みんなで二刀流" },
+    { id: 4, title: "なわとびクラブ", representative: "大谷翔平", location: "USA", date: "12月15日", overview: "みんなで二刀流" },
   ];
+
+  const newbox:BoxInfo = { id: 5, title: "筋トレクラブ", representative: "武井壮", location: "スカイツリー", date: "10月15日", overview: "みんなで走りましょう" };
+
+  const handleClick = () =>{
+    console.log("クリック");
+    boxes.push(newbox);
+    console.log(boxes);
+  }
 
   const navigate = useNavigate();
   const user = useAuthContext();
@@ -39,10 +48,10 @@ export const Home = () => {
           <div className="">Home</div>
             <p>{user.email}</p>
             <button onClick={handleLogout}>Logout</button>
-          <button className='btn'>テスト</button>
+          <button onClick={handleClick} className='btn'>テスト</button>
           {boxes.map((box: BoxInfo) => {
             return(
-              <EventBox title={box.title} representative={box.representative} location={box.location} date={box.date} overview={box.overview}/>
+              <EventBox key={box.id} title={box.title} representative={box.representative} location={box.location} date={box.date} overview={box.overview}/>
             )
           })}
         </div>
