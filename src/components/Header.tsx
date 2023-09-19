@@ -9,7 +9,7 @@ function Header() {
   
     return (
       <>
-        <header className="navbar bg-info flex justify-between">
+        <header className="navbar bg-info flex justify-between fixed mt-0">
         <div className="flex-1"><a className="btn btn-ghost normal-case text-xl">タイトル</a></div>
             <button onClick={handleMenuOpen} className={openMenu ? "fixed right-[-100%]" : "btn btn-square btn-ghost z-10"}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-10 h-10 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
             <div onClick={handleMenuOpen} className={openMenu ? "fixed right-0 top-0 h-screen w-screen flex justify-start bg-black bg-opacity-30" : "fixed right-[-100%]"}></div>
