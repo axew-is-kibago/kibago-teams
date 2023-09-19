@@ -1,7 +1,10 @@
+import Button from "../components/button";
+
 export const Home = () => {
     return (
       <>
-        <h1>Home</h1>
+        <div className="">Home</div>
+        <Button />
       </>
     );
   };
