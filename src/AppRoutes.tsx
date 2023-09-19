@@ -11,7 +11,7 @@ import { CommunityInfo } from './pages/CommunityInfo';
 import { Error } from './pages/Error';
 
 export const router = createBrowserRouter([
-    { path: "/home", element: <Home/>},
+    { path: "/", element: <Home/>},
     { path: "/signup", element: <SignUp />},
     { path: "/signin", element: <SignIn />},
     { path: "/profile_create", element: <ProfileCreate />},

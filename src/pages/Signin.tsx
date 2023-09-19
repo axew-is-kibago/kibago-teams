@@ -1,16 +1,25 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { auth } from '../firebase.ts';
-import { AuthProvider } from "../context/authContext.tsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 export const SignIn = () => {
+  const navigate = useNavigate();
+  const [error, setError] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const user = await signInWithEmailAndPassword(auth, email, password)
-    console.log("User: ", user);
+    try{
+      const user = await signInWithEmailAndPassword(auth, email, password)
+      console.log("User: ", user);
+      navigate('/');
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message)
+      }
+    }
   };
 
   const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +31,8 @@ export const SignIn = () => {
   }
     return (
       <div>
-        <AuthProvider>
+        <h1>Login Page</h1>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email">Email</label>
@@ -51,7 +61,6 @@ export const SignIn = () => {
             User regist is <Link to={'/signup'}>Here...</Link>
           </div>
         </form>
-        </AuthProvider>
       </div>
     );
   };

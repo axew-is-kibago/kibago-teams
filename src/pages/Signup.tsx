@@ -1,19 +1,28 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import { AuthProvider, useAuthContext } from "../context/authContext.tsx";
+import { useAuthContext } from "../context/authContext.tsx";
 import { auth } from '../firebase.ts';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 // import { useAuthContext } from "../context/authContext.tsx";
 export const SignUp = () => {
+  const navigate = useNavigate();
   const user = useAuthContext();
-  console.log(user?.email)
+  const [error, setError] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const user = await createUserWithEmailAndPassword(auth, email, password)
-    console.log("User: ", user);
+    try {
+      e.preventDefault();
+      const user = await createUserWithEmailAndPassword(auth, email, password)
+      navigate('/');
+      console.log("User: ", user);
+    }catch(error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message);
+      }
+    }
   };
 
   const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,8 +34,8 @@ export const SignUp = () => {
   }
     return (
       <div>
-        <AuthProvider>
           <h1>User{ user?.email }</h1>
+          {error && <p style={{ color: 'red' }}>{error}</p>}
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email">Email</label>
@@ -55,7 +64,6 @@ export const SignUp = () => {
             User Singin is <Link to={'/signin'}>Here...</Link>
           </div>
         </form>
-        </AuthProvider>
       </div>
     );
   };
