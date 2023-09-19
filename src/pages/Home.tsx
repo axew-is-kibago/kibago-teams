@@ -2,6 +2,7 @@ import Button from "../components/Button";
 import Header from "../components/Header";
 import EventBox from "../components/EventBox";
 
+
 export const Home = () => {
     return (
       <>
