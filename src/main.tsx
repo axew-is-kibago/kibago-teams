@@ -1,17 +1,16 @@
-import App from './App.tsx'
-import {BrowserRouter} from 'react-router-dom'
-import { createRoot } from 'react-dom/client'; 
+import React from "react";
+import ReactDOM from "react-dom/client";
 import "./index.css";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./AppRoutes";
+import App from "./App";
 
-const root = document.getElementById('root');
-
-if (root) {
-const appRoot = createRoot(root);
-appRoot.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
 );
-} else {
-    console.error("Root element not found");
-}
+root.render(
+  <React.StrictMode>
+    <App />
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
