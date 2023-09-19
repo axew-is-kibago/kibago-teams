@@ -29,4 +29,5 @@ export const Home = () => {
         <Button href = "/" title = "戻る" />
       </>
     );
-  };
+  }
+};
