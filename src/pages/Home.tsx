@@ -1,7 +1,16 @@
+import Button from "../components/Button";
+import Header from "../components/Header";
+import EventBox from "../components/EventBox";
+
 export const Home = () => {
     return (
       <>
-        <h1>Home</h1>
+        <Header />
+        <div className="flex flex-col justify-center items-center">
+          <div className="">Home</div>
+          <EventBox />
+        </div>
+        <Button />
       </>
     );
   };
