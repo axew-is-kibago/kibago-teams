@@ -4,8 +4,8 @@ export const EventCreate = () => {
       <>
       <Header />
         <div className="text-center text-xl py-[5vh]">イベント作成</div>
-        <div id="wrapper" className="w-2/3 ml-auto mr-auto border-2 rounded mb-[8vh]">
-        <div id="input-wrapper" className="w-3/4 ml-auto mr-auto pb-[8vh]">
+        <div className="w-2/3 ml-auto mr-auto border-2 rounded mb-[8vh]">
+        <div className="w-3/4 ml-auto mr-auto pb-[8vh]">
         <form className="pt-[6vh]"><p className="pb-[2vh]">イベント名<span className="text-red-500 required-dot">*</span></p><input className="border-2 rounded w-full h-[34px]"/></form>
         <form className="pt-[6vh]"><p className="pb-[2vh]">場所<span className="text-red-500 required-dot">*</span></p><input className="border-2 rounded w-full h-[34px]"/></form>
         <form className="pt-[6vh]"><p className="pb-[2vh]">日程<span className="text-red-500 required-dot">*</span></p><input className="border-2 rounded w-full h-[34px]"/></form>
