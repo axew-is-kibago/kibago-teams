@@ -7,7 +7,7 @@ const sqlOutput = output.generic({
 })
 
 export async function addUser(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    const product = await request.json();
+    const product = await request.body
     context.log("😇: ", product)
     context.extraOutputs.set(sqlOutput, product);
 

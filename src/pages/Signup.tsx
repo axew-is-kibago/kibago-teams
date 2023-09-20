@@ -16,8 +16,15 @@ export const SignUp = () => {
     try {
       e.preventDefault();
       const user = await createUserWithEmailAndPassword(auth, email, password)
+      console.log("User: ", user.user.uid);
+      await fetch(`/api/addUser`,{
+        method: 'POST',
+        body: JSON.stringify({
+          email: user.user.email,
+          fb_uid: user.user.uid
+        })
+      })
       navigate('/');
-      console.log("User: ", user);
     }catch(error: unknown) {
       if (error instanceof Error) {
         setError(error.message);
