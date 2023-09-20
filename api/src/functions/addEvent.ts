@@ -1,15 +1,26 @@
-import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
+import { app, HttpRequest, HttpResponseInit, InvocationContext, output } from "@azure/functions";
+
+const sqlOutput = output.generic({
+    type: 'sql',
+    commandtext: 'Events',
+    connectionStringSetting: 'SqlConnectionString'
+})
 
 export async function addEvent(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    context.log(`Http function processed request for url "${request.url}"`);
+    const product = await request.body
+    context.log("😇: ", product)
+    context.extraOutputs.set(sqlOutput, product);
 
-    const name = request.query.get('name') || await request.text() || 'world';
+    return {
+        status: 201,
+        body: JSON.stringify(product)
+    };
 
-    return { body: `Hello, ${name}!` };
 }
 
 app.http('addEvent', {
     methods: ['GET', 'POST'],
     authLevel: 'anonymous',
+    extraOutputs: [sqlOutput],
     handler: addEvent
 });
