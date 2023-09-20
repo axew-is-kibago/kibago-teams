@@ -1,18 +1,101 @@
 import Header from '../components/Header'
+import { useState } from 'react';
+
+
 export const EventCreate = () => {
-    return (
-      <>
-      <Header />
-        <div className="text-center text-xl pt-[120px] pb-[5vh]">イベント作成</div>
-        <div className="w-2/3 ml-auto mr-auto border-2 rounded mb-[8vh]">
-        <div className="w-3/4 ml-auto mr-auto pb-[8vh]">
-        <form className="pt-[6vh]"><p className="pb-[2vh]">イベント名<span className="text-red-500 required-dot">*</span></p><input className="border-2 rounded w-full h-[34px]"/></form>
-        <form className="pt-[6vh]"><p className="pb-[2vh]">場所<span className="text-red-500 required-dot">*</span></p><input className="border-2 rounded w-full h-[34px]"/></form>
-        <form className="pt-[6vh]"><p className="pb-[2vh]">日程<span className="text-red-500 required-dot">*</span></p><input className="border-2 rounded w-full h-[34px]"/></form>
-        <form className="pt-[6vh]"><p className="pb-[2vh]">概要<span className="text-red-500 required-dot">*</span></p><textarea className="border-2 rounded w-full h-[25vh]"/></form>
-        <div className="pt-[2vh] text-right"><button className="bg-purple-500 text-white rounded p-[1vh] hover:bg-purple-300 px-[1.5vw] py-[1vh]">投稿する</button></div>
-        </div>
-        </div>
-      </>
-    );
+  const [title, setTitle] = useState<string>('');
+  const [representative, setRepresentative] = useState<string>('');
+  const [location, setLocation] = useState<string>('');
+  const [date, setDate] = useState<string>('');
+  const [overview, setOverview] = useState<string>('');
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log({
+      title,
+      representative,
+      location,
+      date,
+      overview,
+    });
   };
+
+  const handleChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  };
+  const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRepresentative(e.target.value);
+  };
+  const handleChangeLocation = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLocation(e.target.value);
+  };
+  const handleChangeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDate(e.target.value);
+  };
+  const handleChangeOverview = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setOverview(e.target.value);
+  };
+  return (
+    <>
+      <Header />
+      <div className="pt-[100px]">
+        <h1>ログイン</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="title">イベント名</label>
+            <input
+              id="title"
+              name="title"
+              value={title}
+              onChange={handleChangeTitle}
+            />
+          </div>
+          <div>
+            <label htmlFor="representative">代表者</label>
+            <input
+              id="representative"
+              name="representative"
+              value={representative}
+              onChange={handleChangePassword}
+              type="representative"
+            />
+          </div>
+          <div>
+            <label htmlFor="location">場所</label>
+            <input
+              id="location"
+              name="location"
+              value={location}
+              onChange={handleChangeLocation}
+              type="location"
+            />
+          </div>
+          <div>
+            <label htmlFor="date">日程</label>
+            <input
+              id="date"
+              name="date"
+              value={date}
+              onChange={handleChangeDate}
+              type="date"
+            />
+          </div>
+          <div>
+            <label htmlFor="overview">概要</label>
+            <input
+              id="overview"
+              name="overview"
+              value={overview}
+              onChange={handleChangeOverview}
+              type="overview"
+            />
+          </div>
+          <div>
+            <button type="submit">作成</button>
+          </div>
+        </form>
+      </div>
+    </>
+  );
+  };
+
