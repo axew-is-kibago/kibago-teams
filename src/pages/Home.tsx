@@ -21,6 +21,15 @@ export const Home = () => {
     {id: 3, title: "ラジオ体操愛好会", representative:"武井壮", location: "スカイツリー", date:"11月11日", overview:"目指せ健康体"},
   ]
 
+  const newBox = {id: 4, title: "ボディビル研究会", representative:"中山", location: "ゴールド事務", date:"11月11日", overview:"目指せ筋肉"};
+
+  const handleClick = () => {
+    console.log("クリックしました");
+    Boxes.push(newBox);
+    console.log(newBox);
+  }
+
+
   const navigate = useNavigate();
   const user = useAuthContext();
   console.log(user?.email)
@@ -39,6 +48,7 @@ export const Home = () => {
           <p>{user.email}</p>
           <button onClick={handleLogout}>Logout</button>
           <div className='text-[60px]'>募集掲示板</div>
+          <button onClick={handleClick} className='btn'>追加</button>
           <div className='w-screen flex flex-col justify-center items-center mt-10'>
             {Boxes.map((box: BoxInfo) => {
               return(
