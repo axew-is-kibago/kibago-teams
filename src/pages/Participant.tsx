@@ -1,6 +1,7 @@
 import ParticipantIcon from "../components/Userbox";
 import Button from "../components/Button";
 import Header from "../components/Header";
+import { useState, useEffect } from 'react';
 
 type BoxInfo = {
   id: number;
@@ -9,13 +10,19 @@ type BoxInfo = {
 
 
 export const Participant = () => {
-  const Boxes: BoxInfo[] = [
+  const [profileArray, setprofileArray] = useState<BoxInfo[]>([
     { id: 1, name: "John" },
     { id: 2, name: "Steve" },
     { id: 3, name: "Bob" },
     { id: 4, name: "June" },
-    { id: 4, name: "June" },
-  ];
+    { id: 5, name: "Pate" },
+  ])
+
+  useEffect(() => { console.log("出力テスト"); })
+
+  const handleClick = () => {
+    setprofileArray((prevState) => ([...prevState, {id: profileArray.length+1, name: "Jake"}]));
+    console.log(profileArray); }
 
   return (
     <>
@@ -26,8 +33,8 @@ export const Participant = () => {
             <div className="text-gray-700 text-xl py-[5vh]" style={{ fontSize: '30px' }}>
               参加者一覧
             </div>
-            <div className='w-1/2'>
-              {Boxes.map((box: BoxInfo) => {
+            <div className="w-1/2 text-center"><button onClick={handleClick} className='text-center btn'>追加</button>
+              {profileArray.map((box: BoxInfo) => {
                 return <ParticipantIcon id={box.id} name={box.name} />;
               })}
             </div>
@@ -38,4 +45,4 @@ export const Participant = () => {
       </div>
     </>
   );
-};
+};  
