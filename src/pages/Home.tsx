@@ -26,24 +26,11 @@ export const Home = () => {
     console.log("レンダリング");  
   }, []);
 
-
-
-  // const Boxes:BoxInfo[] = [
-  //   {id: 1, title: "マラソン大会", representative:"武井壮", location: "スカイツリー", date:"11月11日", overview:"目指せフルマラソン完走"},
-  //   {id: 2, title: "ラジオ体操愛好会", representative:"武井壮", location: "スカイツリー", date:"11月11日", overview:"目指せ健康体"},
-  //   {id: 3, title: "ラジオ体操愛好会", representative:"武井壮", location: "スカイツリー", date:"11月11日", overview:"目指せ健康体"},
-  // ]
-
-  // const newBox = {id: 4, title: "ボディビル研究会", representative:"中山", location: "ゴールド事務", date:"11月11日", overview:"目指せ筋肉"};
-
   const handleClick = () => {
     console.log("クリックしました");
-    // Boxes.push(newBox);
     setBoxArray((prevState)=> ([ ...prevState, {id: 4, title: "ボディビル研究会", representative:"中山", location: "ゴールド事務", date:"11月11日", overview:"目指せ筋肉"}]));
-    // console.log(newBox);
     console.log(BoxArray);
   }
-
 
   const navigate = useNavigate();
   const user = useAuthContext();
