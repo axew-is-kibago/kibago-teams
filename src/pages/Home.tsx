@@ -16,8 +16,9 @@ type BoxInfo ={
 
 export const Home = () => {
   const Boxes:BoxInfo[] = [
-    {id: 1,title: "マラソン大会", representative:"武井壮", location: "スカイツリー", date:"11月11日", overview:"目指せフルマラソン完走"},
-    {id: 2,title: "ラジオ体操愛好会", representative:"武井壮", location: "スカイツリー", date:"11月11日", overview:"目指せ健康体"},
+    {id: 1, title: "マラソン大会", representative:"武井壮", location: "スカイツリー", date:"11月11日", overview:"目指せフルマラソン完走"},
+    {id: 2, title: "ラジオ体操愛好会", representative:"武井壮", location: "スカイツリー", date:"11月11日", overview:"目指せ健康体"},
+    {id: 3, title: "ラジオ体操愛好会", representative:"武井壮", location: "スカイツリー", date:"11月11日", overview:"目指せ健康体"},
   ]
 
   const navigate = useNavigate();
@@ -34,15 +35,17 @@ export const Home = () => {
     return (
       <>
         <Header />
-        <div className="flex flex-col justify-center items-center">
-          <div className="">Home</div>
-            <p>{user.email}</p>
-            <button onClick={handleLogout}>Logout</button>
-          {Boxes.map((box: BoxInfo) => {
-            return(
-              <EventBox key={box.id} title={box.title} representative={box.representative} location={box.location} date={box.date} overview={box.overview}/>
-            )
-          })}
+        <div className="flex flex-col justify-center items-center pt-[90px]">
+          <p>{user.email}</p>
+          <button onClick={handleLogout}>Logout</button>
+          <div className='text-[60px]'>募集掲示板</div>
+          <div className='w-screen flex flex-col justify-center items-center mt-10'>
+            {Boxes.map((box: BoxInfo) => {
+              return(
+                <EventBox key={box.id} title={box.title} representative={box.representative} location={box.location} date={box.date} overview={box.overview}/>
+              )
+            })}
+          </div>
         </div>
         <Button href = "/" title = "戻る" />
       </>
