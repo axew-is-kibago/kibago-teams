@@ -1,7 +1,8 @@
 import Header from '../components/Header';
-import { TextareaHTMLAttributes, useState } from 'react';
+import React, { useState } from 'react';
 import { auth } from '../firebase.ts';
 import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 export const EventCreate = () => {
   const navigate = useNavigate();
@@ -13,15 +14,17 @@ export const EventCreate = () => {
   const [date, setDate] = useState<string>('');
   const [overview, setOverview] = useState<string>('');
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log({
-      title,
-      representative,
-      location,
-      date,
-      overview,
-    });
+    try{
+      const event = await signInWithEmailAndPassword(auth, title, date);
+      console.log("Event: ", event);
+      navigate('/');
+    } catch (error: unknown){
+      if (error instanceof Error){
+        setError(error.message)
+      }
+    }
   };
 
   const handleChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,6 +51,7 @@ export const EventCreate = () => {
     <>
       <Header />
       <div className="w-full h-screen pt-[100px]">
+      {error && <p className="mt-2 text-center text-red-600">{error}</p>}
         <form className='w-full' onSubmit={handleSubmit}>
           <div className='flex flex-col items-center'>
             <div className='flex flex-col w-1/2'>
