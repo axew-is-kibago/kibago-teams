@@ -5,7 +5,7 @@ import { app, input } from '@azure/functions';
  */
 const sqlInput = input.generic({
     type: 'sql',
-    commandText: 'select * from Events,Users where Events.fb_uid = Users.fb_uid',
+    commandText: 'select * from Events,Users where Events.fb_uid = Users.fb_ui',
     commandType: 'Text',
     // parameters: '@Event={event}',
     connectionStringSetting: 'SqlConnectionString'
