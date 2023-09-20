@@ -16,7 +16,7 @@ function Header() {
             <nav className={openMenu ? "text-left fixed bg-slate-50 right-0 top-0 w-4/12 h-screen flex flex-col justify-start transition duration-500 ease-in-out pt-8 px-3" : "fixed right-[-100%]"}>
               <ul className={openMenu ? "" : "fixed right-[-100%]"}>
                 <li className="py-[4vh] text-[2vw] hover:underline"><a href="../">募集掲示板</a></li>
-                <li className="py-[4vh] text-[2vw] hover:underline"><a href="../profile">プロフィール</a></li>
+                <li className="py-[4vh] text-[2vw] hover:underline"><a href="../profile_create">プロフィール</a></li>
                 <li className="py-[4vh] text-[2vw] hover:underline"><a href="../myevent_info">マイイベント</a></li>
                 <li className="py-[4vh] text-[2vw] hover:underline"><a href="../event_create">イベント作成</a></li>
               </ul>
