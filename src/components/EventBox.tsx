@@ -21,6 +21,10 @@ function EventBox({title, representative, location, date, overview}: EventInfo) 
             <div className="border border-black w-5/6 h-1/2 text-[20px]">
             {overview}
             </div>
+            <div className="flex flex-row w-full justify-end space-x-5 pr-3">
+              <button className=" bg-sky-400 text-[20px] w-1/6 py-2 hover:bg-sky-200 rounded mb-3 mt-2 font-bold">参加する</button>
+              <button className=" bg-sky-400 text-[20px] w-1/6 py-2 hover:bg-sky-200 rounded mb-3 mt-2 font-bold">一覧</button>
+            </div>
         </div>
       </>
     )
