@@ -78,7 +78,7 @@ export const ProfileCreate = () => {
             </div>
           </div>
       </div>
-      <Button href="/home" title="作成" />
+      <Button href="/" title="作成" />
     </>
   );
 };
