@@ -18,6 +18,7 @@ function Header() {
                 <li className="py-[4vh] text-[2vw] hover:underline"><a href="../">募集掲示板</a></li>
                 <li className="py-[4vh] text-[2vw] hover:underline"><a href="../profile">プロフィール</a></li>
                 <li className="py-[4vh] text-[2vw] hover:underline"><a href="../myevent_info">マイイベント</a></li>
+                <li className="py-[4vh] text-[2vw] hover:underline"><a href="../event_create">イベント作成</a></li>
               </ul>
             </nav>
         </header>

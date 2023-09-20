@@ -3,7 +3,7 @@ export const EventCreate = () => {
     return (
       <>
       <Header />
-        <div className="text-center text-xl py-[5vh]">イベント作成</div>
+        <div className="text-center text-xl pt-[120px] pb-[5vh]">イベント作成</div>
         <div className="w-2/3 ml-auto mr-auto border-2 rounded mb-[8vh]">
         <div className="w-3/4 ml-auto mr-auto pb-[8vh]">
         <form className="pt-[6vh]"><p className="pb-[2vh]">イベント名<span className="text-red-500 required-dot">*</span></p><input className="border-2 rounded w-full h-[34px]"/></form>
