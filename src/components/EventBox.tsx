@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom"
+
 type EventInfo ={
   title:string;
   representative:string;
@@ -8,6 +10,10 @@ type EventInfo ={
 
 
 function EventBox({title, representative, location, date, overview}: EventInfo) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/participant");
+  }
     return (
       <>
         <div className="flex flex-col border pl-3 border-black w-1/2 h-[400px] rounded mb-10">
@@ -23,7 +29,7 @@ function EventBox({title, representative, location, date, overview}: EventInfo) 
             </div>
             <div className="flex flex-row w-full justify-end space-x-5 pr-3">
               <button className=" bg-sky-400 text-[20px] w-1/6 py-2 hover:bg-sky-200 rounded mb-3 mt-2 font-bold">参加する</button>
-              <button className=" bg-sky-400 text-[20px] w-1/6 py-2 hover:bg-sky-200 rounded mb-3 mt-2 font-bold">一覧</button>
+              <button onClick={handleClick} className=" bg-sky-400 text-[20px] w-1/6 py-2 hover:bg-sky-200 rounded mb-3 mt-2 font-bold">一覧</button>
             </div>
         </div>
       </>
