@@ -15,10 +15,9 @@ function Header() {
             <div class="openMenu-bg" onClick={handleMenuOpen} className={openMenu ? "fixed right-0 top-0 h-screen w-screen flex justify-start bg-black bg-opacity-30" : "fixed right-[-100%]"}></div>
             <nav className={openMenu ? "text-left fixed bg-slate-50 right-0 top-0 w-4/12 h-screen flex flex-col justify-start transition duration-500 ease-in-out pt-8 px-3" : "fixed right-[-100%]"}>
               <ul className={openMenu ? "" : "fixed right-[-100%]"}>
-                <li className="py-[4vh] text-[2vw] hover:underline">ホーム</li>
-                <li className="py-[4vh] text-[2vw] hover:underline">プロフィール</li>
-                <li className="py-[4vh] text-[2vw] hover:underline">募集掲示板</li>
-                <li className="py-[4vh] text-[2vw] hover:underline">マイイベント</li>
+                <li className="py-[4vh] text-[2vw] hover:underline"><a href="../home">募集掲示板</a></li>
+                <li className="py-[4vh] text-[2vw] hover:underline"><a href="../profile">プロフィール</a></li>
+                <li className="py-[4vh] text-[2vw] hover:underline"><a href="../community_info">マイイベント</a></li>
               </ul>
             </nav>
         </header>
