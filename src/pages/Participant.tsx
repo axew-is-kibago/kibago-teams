@@ -30,7 +30,7 @@ export const Participant = () => {
       <div className="flex flex-col items-center w-screen">
         <div className="flex flex-col items-center w-full">
           <div className="ml-5 w-full mt-10 flex flex-col items-center">
-            <div className="text-gray-700 text-xl py-[5vh]" style={{ fontSize: '30px' }}>
+            <div className="text-gray-700 py-[5vh]" style={{ fontSize: '50px' }}>
               参加者一覧
             </div>
             <div className="w-1/2 text-center"><button onClick={handleClick} className='text-center btn'>追加</button>
@@ -40,7 +40,6 @@ export const Participant = () => {
             </div>
           </div>
         </div>
-
         <Button href="/" title="戻る" />
       </div>
     </>

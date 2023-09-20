@@ -1,3 +1,4 @@
+import Header from "../components/Header";
 import {z} from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -32,7 +33,8 @@ export const ProfileCreate = () => {
 
   return (
     <>
-    <form onSubmit={onSubmit} className="flex flex-col items-center">
+    <Header />
+    <form onSubmit={onSubmit} className="flex flex-col items-center pt-[100px]">
 
         <div className="flex flex-col items-center w-screen">
           <div className="ml-5 w-1/2 relative mt-5">
@@ -46,7 +48,7 @@ export const ProfileCreate = () => {
               className=" rounded border border-black w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-black-600 focus:border-transparent"
                placeholder="Name" {...register('name')}/>
           </div>
-        </div>
+
 
         <div className="flex flex-col items-center w-screen">
           <div className="ml-5 w-1/2 relative mt-5">
@@ -82,9 +84,10 @@ export const ProfileCreate = () => {
                 />
                 <span className="ml-2">その他 Other</span>
               </label>
+
+         
             </div>
           </div>
-        </div>
 
         <div className="flex flex-col items-center w-screen">
           <div className="ml-5 w-1/2 relative mt-5">
@@ -99,7 +102,6 @@ export const ProfileCreate = () => {
               placeholder="Weight (kg)" 
               {...register('weight')}/>
           </div>
-        </div>
 
         <div className="flex flex-col items-center w-screen">
           <div className="ml-5 w-1/2 relative mt-5">
@@ -113,7 +115,6 @@ export const ProfileCreate = () => {
               className=" rounded border border-black w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-black-600 focus:border-transparent"
               placeholder="Height (cm)" {...register('height')} />
           </div>
-        </div>
 
         <div className="flex flex-col items-center w-screen">
           <div className="ml-5 w-1/2 relative mt-5">
