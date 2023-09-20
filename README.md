@@ -65,10 +65,24 @@ https://aadojo.alterbooth.com/entry/2022/09/09/170000
 下記のサイトを参考にしてください
 https://learn.microsoft.com/ja-jp/sql/azure-data-studio/quickstart-mysql?view=sql-server-ver16
 
-### Auth0
-詰まったポイント 環境変数が誤ってクライアントに漏れてしまうことを防ぐために、VITE_ から始まる変数のみが Vite で処理されたコードに公開される． なので以下の.env設定は以下のようになる． https://zenn.dev/joo_hashi/scraps/1a44b946615d78 .envの設定
+### ~~Auth0~~
+
+~~詰まったポイント 環境変数が誤ってクライアントに漏れてしまうことを防ぐために、VITE_ から始まる変数のみが Vite で処理されたコードに公開される． なので以下の.env設定は以下のようになる．~~
+~~https://zenn.dev/joo_hashi/scraps/1a44b946615d78 .envの設定~~
 ```
 VITE_REACT_APP_AUTH0_DOMAIN=
 VITE_REACT_APP_AUTH0_CLIENT_ID=
 VITE_REACT_APP_AUTH0_REDIRECT_URI=
+```
+
+Firebase
+.env
+```
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGE_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+
 ```
