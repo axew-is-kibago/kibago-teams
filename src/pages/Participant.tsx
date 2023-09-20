@@ -10,7 +10,7 @@ export const Participant = () => {
       <div className="flex flex-col items-center">
 
         <div className="flex flex-col items-center w-screen">
-          <div className="ml-5 w-1/2 relative mt-10">
+          <div className="ml-5 w-1/2 mt-10">
             <div className="text-center text-gray-700 text-xl py-[5vh]" style={{ fontSize: '30px' }}>
               参加者一覧
             </div>
