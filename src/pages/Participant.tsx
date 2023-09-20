@@ -6,7 +6,7 @@ import Header from "../components/Header";
 export const Participant = () => {
   return (
     <>
-      <Header /> 
+    <Header /> 
       <div className="flex flex-col items-center">
 
         <div className="flex flex-col items-center w-screen">
@@ -30,7 +30,7 @@ export const Participant = () => {
           </div>
         </div>
 
-        <Button href="/Home" title="戻る" /> 
+        <Button href="/" title="戻る" /> 
         
       </div>
     </>
