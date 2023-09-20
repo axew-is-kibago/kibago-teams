@@ -4,6 +4,7 @@ import { useNavigate, Navigate } from 'react-router-dom'
 import Button from "../components/Button";
 import Header from "../components/Header";
 import EventBox from "../components/EventBox";
+import { useState, useEffect } from 'react';
 
 type BoxInfo ={
   id:number;
@@ -14,19 +15,33 @@ type BoxInfo ={
   overview:string;
 }
 
-export const Home = () => {
-  const Boxes:BoxInfo[] = [
+export const Home = () => {  
+  const [BoxArray, setBoxArray] = useState<BoxInfo[]>([
     {id: 1, title: "マラソン大会", representative:"武井壮", location: "スカイツリー", date:"11月11日", overview:"目指せフルマラソン完走"},
     {id: 2, title: "ラジオ体操愛好会", representative:"武井壮", location: "スカイツリー", date:"11月11日", overview:"目指せ健康体"},
     {id: 3, title: "ラジオ体操愛好会", representative:"武井壮", location: "スカイツリー", date:"11月11日", overview:"目指せ健康体"},
-  ]
+  ]);
 
-  const newBox = {id: 4, title: "ボディビル研究会", representative:"中山", location: "ゴールド事務", date:"11月11日", overview:"目指せ筋肉"};
+  useEffect(() => {
+    console.log("レンダリング");  
+  }, []);
+
+
+
+  // const Boxes:BoxInfo[] = [
+  //   {id: 1, title: "マラソン大会", representative:"武井壮", location: "スカイツリー", date:"11月11日", overview:"目指せフルマラソン完走"},
+  //   {id: 2, title: "ラジオ体操愛好会", representative:"武井壮", location: "スカイツリー", date:"11月11日", overview:"目指せ健康体"},
+  //   {id: 3, title: "ラジオ体操愛好会", representative:"武井壮", location: "スカイツリー", date:"11月11日", overview:"目指せ健康体"},
+  // ]
+
+  // const newBox = {id: 4, title: "ボディビル研究会", representative:"中山", location: "ゴールド事務", date:"11月11日", overview:"目指せ筋肉"};
 
   const handleClick = () => {
     console.log("クリックしました");
-    Boxes.push(newBox);
-    console.log(newBox);
+    // Boxes.push(newBox);
+    setBoxArray((prevState)=> ([ ...prevState, {id: 4, title: "ボディビル研究会", representative:"中山", location: "ゴールド事務", date:"11月11日", overview:"目指せ筋肉"}]));
+    // console.log(newBox);
+    console.log(BoxArray);
   }
 
 
@@ -50,7 +65,7 @@ export const Home = () => {
           <div className='text-[60px]'>募集掲示板</div>
           <button onClick={handleClick} className='btn'>追加</button>
           <div className='w-screen flex flex-col justify-center items-center mt-10'>
-            {Boxes.map((box: BoxInfo) => {
+            {BoxArray.map((box: BoxInfo) => {
               return(
                 <EventBox key={box.id} title={box.title} representative={box.representative} location={box.location} date={box.date} overview={box.overview}/>
               )
