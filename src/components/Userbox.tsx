@@ -5,16 +5,16 @@ type UserInfo = {
   name: string;
 };
 
-function ParticipantIcon({id, name}: UserInfo) {
+function ParticipantIcon({ id, name }: UserInfo) {
   return (
     <div className="z-[30]">
-      <div className="flex items-center rounded border border-black mb-8 h-[100px]">
+      <div className="w-full flex items-center rounded border border-black mb-4 p-4">
         <FaUser className="text-6xl mr-4" />
         <div className="text-3xl">ID : {id}</div>
-        <div className="text-3xl">NAME : {name}</div>
-        </div>
+        <div className="text-3xl ml-4">NAME : {name}</div>
       </div>
-      );
+    </div>
+  );
 }
 
 export default ParticipantIcon;
