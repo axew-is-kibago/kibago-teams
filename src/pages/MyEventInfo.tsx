@@ -1,6 +1,6 @@
 import Button from "../components/Button";
 
-export const CommunityInfo = () => {
+export const MyEventInfo = () => {
     return (
       <>
         <div>information</div>

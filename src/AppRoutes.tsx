@@ -6,7 +6,7 @@ import { Home } from './pages/Home';
 import { EventCreate } from './pages/EventCreate';
 import { Participant } from './pages/Participant';
 import { Profile } from './pages/Profile';
-import { CommunityInfo } from './pages/CommunityInfo';
+import { MyEventInfo } from './pages/MyEventInfo';
 import { Error } from './pages/Error';
 
 
@@ -18,6 +18,6 @@ export const router = createBrowserRouter([
     { path: "/event_create", element: <EventCreate />},
     { path: "/participant", element: <Participant />},
     { path: "/profile", element: <Profile />},
-    { path: "/community_info", element: <CommunityInfo />},
+    { path: "/myevent_info", element: <MyEventInfo />},
     { path: "/*", element: <Error />},
 ]);
