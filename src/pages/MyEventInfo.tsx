@@ -1,4 +1,5 @@
 import Button from "../components/Button";
+import UpButton from "../components/upButton";
 import Header from "../components/Header";
 import MyEventBox from "../components/MyEventBox";
 import { useState, useEffect } from 'react';
@@ -43,6 +44,7 @@ export const MyEventInfo = () => {
         </div>
         </div>
         <Button href = "/home" title = "戻る"/>
+        <UpButton />
       </>
     );
   };
