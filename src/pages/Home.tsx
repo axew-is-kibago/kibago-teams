@@ -1,12 +1,8 @@
 import { useAuthContext } from '../context/authContext';
-<<<<<<< HEAD
 import { auth } from '../firebase';
 import { useNavigate, Navigate } from 'react-router-dom'
 import Button from "../components/Button";
-=======
-import { Navigate } from 'react-router-dom'
 import UpButton from "../components/upButton";
->>>>>>> 0cd046c49f54c528f8c00624e9b3688b1c672694
 import Header from "../components/Header";
 import EventBox from "../components/EventBox";
 import { useState, useEffect } from 'react';
@@ -68,11 +64,7 @@ export const Home = () => {
             })}
           </div>
         </div>
-<<<<<<< HEAD
-        <Button href="/" title="戻る" />
-=======
         <UpButton />
->>>>>>> 0cd046c49f54c528f8c00624e9b3688b1c672694
       </>
     );
   }
