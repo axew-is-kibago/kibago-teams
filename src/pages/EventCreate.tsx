@@ -52,7 +52,8 @@ export const EventCreate = () => {
     })
     console.log(title)
     navigate('/')
-  };
+  }
+  }
 
   const handleChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -139,5 +140,4 @@ export const EventCreate = () => {
       </div>
     </>
   );
-  }
 }

@@ -2,7 +2,6 @@ import { useAuthContext } from '../context/authContext';
 import { auth } from '../firebase';
 import { useNavigate, Navigate } from 'react-router-dom'
 import Button from "../components/Button";
-import UpButton from "../components/upButton";
 import Header from "../components/Header";
 import EventBox from "../components/EventBox";
 import { useState, useEffect } from 'react';
@@ -79,7 +78,6 @@ export const Home = () => {
           </div>
         </div>
         <Button href="/" title="戻る" />
-        <UpButton />
       </>
     );
   }
