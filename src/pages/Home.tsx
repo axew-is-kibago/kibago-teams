@@ -1,7 +1,12 @@
 import { useAuthContext } from '../context/authContext';
+<<<<<<< HEAD
 import { auth } from '../firebase';
 import { useNavigate, Navigate } from 'react-router-dom'
 import Button from "../components/Button";
+=======
+import { Navigate } from 'react-router-dom'
+import UpButton from "../components/upButton";
+>>>>>>> 0cd046c49f54c528f8c00624e9b3688b1c672694
 import Header from "../components/Header";
 import EventBox from "../components/EventBox";
 import { useState, useEffect } from 'react';
@@ -16,7 +21,6 @@ type BoxInfo ={
 }
 
 export const Home = () => {
-  const navigate = useNavigate();
   const user = useAuthContext();
 
 
@@ -44,21 +48,9 @@ export const Home = () => {
 
   if(isError){
     return <p>Error!</p>
-  }
-  // const [BoxArray, setBoxArray] = useState<BoxInfo[]>([
-  //   { id: 1, title: "マラソン大会", representative: "武井壮", location: "スカイツリー", date: "11月11日", overview: "目指せフルマラソン完走" },
-  //   { id: 2, title: "ラジオ体操愛好会", representative: "武井壮", location: "スカイツリー", date: "11月11日", overview: "目指せ健康体" },
-  //   { id: 3, title: "ラジオ体操愛好会", representative: "武井壮", location: "スカイツリー", date: "11月11日", overview: "目指せ健康体" },
-  // ]);
-
-  
+  }  
   
   console.log(user?.email)
-  const handleLogout = () => {
-    auth.signOut();
-    navigate('/signin')
-  }
-
   if (!user) {
     return <Navigate to="/signin" />
   } else {
@@ -67,7 +59,6 @@ export const Home = () => {
         <Header />
         <div className="flex flex-col justify-center items-center pt-[90px]">
           <p className="text-lg">{user.email}</p>
-          <button onClick={handleLogout} className="mt-4 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">Logout</button>
           <div className='text-4xl mt-6'>募集掲示板</div>
           <div className='w-full flex flex-col justify-center items-center mt-10'>
             {BoxArray.map((box: BoxInfo) => {
@@ -77,7 +68,11 @@ export const Home = () => {
             })}
           </div>
         </div>
+<<<<<<< HEAD
         <Button href="/" title="戻る" />
+=======
+        <UpButton />
+>>>>>>> 0cd046c49f54c528f8c00624e9b3688b1c672694
       </>
     );
   }
