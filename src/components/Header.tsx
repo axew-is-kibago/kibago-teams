@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { auth } from '../firebase';
-import { useNavigate, Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 function Header() {

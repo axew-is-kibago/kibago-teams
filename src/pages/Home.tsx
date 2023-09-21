@@ -1,6 +1,5 @@
 import { useAuthContext } from '../context/authContext';
-import { auth } from '../firebase';
-import { useNavigate, Navigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import UpButton from "../components/upButton";
 import Header from "../components/Header";
 import EventBox from "../components/EventBox";
@@ -16,7 +15,6 @@ type BoxInfo ={
 }
 
 export const Home = () => {
-  const navigate = useNavigate();
   const user = useAuthContext();
 
 
@@ -47,11 +45,6 @@ export const Home = () => {
   }  
   
   console.log(user?.email)
-  const handleLogout = () => {
-    auth.signOut();
-    navigate('/signin')
-  }
-
   if (!user) {
     return <Navigate to="/signin" />
   } else {
