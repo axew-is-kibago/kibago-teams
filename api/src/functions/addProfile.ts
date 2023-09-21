@@ -8,7 +8,7 @@ const sqlOutput = output.generic({
 
 export async function addProfile(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     const product = await request.json()
-    product.header("Content-Type", "application/json; charset=utf-8");
+    // product.header("Content-Type", "application/json; charset=utf-8");
     context.log("😛: ", product)
     context.extraOutputs.set(sqlOutput, product);
 
