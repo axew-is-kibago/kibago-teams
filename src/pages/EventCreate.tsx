@@ -1,30 +1,36 @@
-import Header from '../components/Header';
 import React, { useState } from 'react';
-import { auth } from '../firebase.ts';
 import { useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import Header from '../components/Header';
+import { auth } from '../firebase';
 
 export const EventCreate = () => {
   const navigate = useNavigate();
 
-  const [error, setError] = useState<string>('');
   const [title, setTitle] = useState<string>('');
   const [representative, setRepresentative] = useState<string>('');
   const [location, setLocation] = useState<string>('');
   const [date, setDate] = useState<string>('');
   const [overview, setOverview] = useState<string>('');
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try{
-      const event = await signInWithEmailAndPassword(auth, title, date);
-      console.log("Event: ", event);
-      navigate('/');
-    } catch (error: unknown){
-      if (error instanceof Error){
-        setError(error.message)
-      }
+  const handleSubmit = async () => {
+    if (auth.currentUser === null) {
+      console.error("current user is null");
+      return;
     }
+
+    const user_id = auth.currentUser.uid
+    await fetch(`/api/addEvent`,{
+      'method': 'POST',
+      body: JSON.stringify({
+        fb_uid: user_id,
+        title: title,
+        representative: representative,
+        location: location,
+        event_date: date,
+        overview: overview,
+      }),
+    })
+    navigate('/')
   };
 
   const handleChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,7 +49,7 @@ export const EventCreate = () => {
     setDate(e.target.value);
   };
 
-  const handleChangeOverview = (e: React.ChangeEvent<any>) => {
+  const handleChangeOverview = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setOverview(e.target.value);
   };
 
@@ -51,7 +57,6 @@ export const EventCreate = () => {
     <>
       <Header />
       <div className="w-full h-screen pt-[100px]">
-      {error && <p className="mt-2 text-center text-red-600">{error}</p>}
         <form className='w-full' onSubmit={handleSubmit}>
           <div className='flex flex-col items-center'>
             <div className='flex flex-col w-1/2'>
@@ -113,5 +118,4 @@ export const EventCreate = () => {
       </div>
     </>
   );
-  };
-
+}
