@@ -14,6 +14,25 @@ export const EventCreate = () => {
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
+    try{
+      // const event = await signInWithEmailAndPassword(auth, title, date);
+      const user_id = auth.currentUser?.uid
+      await fetch(`/api/addEvent`,{
+        method: 'POST',
+        body: JSON.stringify({
+          fb_uid: user_id,
+          title: title,
+          representative: representative,
+          location: location,
+          event_date: date,
+          overview: overview
+        })
+      })
+      navigate('/');
+    } catch (error: unknown){
+      if (error instanceof Error){
+        // setError(error.message)
+      }
 
     if (auth.currentUser === null) {
       console.error("current user is null");
@@ -33,7 +52,8 @@ export const EventCreate = () => {
     })
     console.log(title)
     navigate('/')
-  };
+  }
+  }
 
   const handleChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);

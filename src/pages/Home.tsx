@@ -1,5 +1,7 @@
 import { useAuthContext } from '../context/authContext';
-import { Navigate } from 'react-router-dom'
+import { auth } from '../firebase';
+import { useNavigate, Navigate } from 'react-router-dom'
+import Button from "../components/Button";
 import UpButton from "../components/upButton";
 import Header from "../components/Header";
 import EventBox from "../components/EventBox";
