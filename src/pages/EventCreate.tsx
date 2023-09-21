@@ -2,7 +2,7 @@ import Header from '../components/Header';
 import React, { useState } from 'react';
 import { auth } from '../firebase.ts';
 import { useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+// import { signInWithEmailAndPassword } from 'firebase/auth';
 
 export const EventCreate = () => {
   const navigate = useNavigate();
@@ -17,8 +17,20 @@ export const EventCreate = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try{
-      const event = await signInWithEmailAndPassword(auth, title, date);
       console.log("Event: ", event);
+      // const event = await signInWithEmailAndPassword(auth, title, date);
+      const user_id = auth.currentUser?.uid
+      await fetch(`/api/addEvent`,{
+        method: 'POST',
+        body: JSON.stringify({
+          fb_uid: user_id,
+          title: title,
+          representative: representative,
+          location: location,
+          event_date: date,
+          overview: overview
+        })
+      })
       navigate('/');
     } catch (error: unknown){
       if (error instanceof Error){
@@ -43,7 +55,7 @@ export const EventCreate = () => {
     setDate(e.target.value);
   };
 
-  const handleChangeOverview = (e: React.ChangeEvent<any>) => {
+  const handleChangeOverview = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setOverview(e.target.value);
   };
 
