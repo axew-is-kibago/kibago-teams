@@ -15,7 +15,6 @@ export const EventCreate = () => {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     try{
-      console.log("Event: ", event);
       // const event = await signInWithEmailAndPassword(auth, title, date);
       const user_id = auth.currentUser?.uid
       await fetch(`/api/addEvent`,{
@@ -32,7 +31,7 @@ export const EventCreate = () => {
       navigate('/');
     } catch (error: unknown){
       if (error instanceof Error){
-        setError(error.message)
+        // setError(error.message)
       }
 
     if (auth.currentUser === null) {
@@ -140,4 +139,5 @@ export const EventCreate = () => {
       </div>
     </>
   );
+  }
 }

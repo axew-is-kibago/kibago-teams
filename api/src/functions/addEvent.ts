@@ -7,11 +7,8 @@ const sqlOutput = output.generic({
 })
 
 export async function addEvent(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-<<<<<<< HEAD
-    const product = await request.json();
-=======
+
     const product = await request.json()
->>>>>>> 19b321e64b5d99222d9716ce07c968f24f3c3349
     context.log("😇: ", product)
     context.extraOutputs.set(sqlOutput, product);
 
