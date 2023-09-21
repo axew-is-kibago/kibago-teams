@@ -12,12 +12,13 @@ export const EventCreate = () => {
   const [date, setDate] = useState<string>('');
   const [overview, setOverview] = useState<string>('');
 
-  const handleSubmit = async () => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault();
+
     if (auth.currentUser === null) {
       console.error("current user is null");
       return;
     }
-
     const user_id = auth.currentUser.uid
     await fetch(`/api/addEvent`,{
       'method': 'POST',
@@ -30,6 +31,7 @@ export const EventCreate = () => {
         overview: overview,
       }),
     })
+    console.log(title)
     navigate('/')
   };
 
